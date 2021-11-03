@@ -1,21 +1,18 @@
 #!/bin/bash
 #
-# run /bin/ls 3 times
+# checks if the strtok function was used by using ltrace
 
 command="/bin/ls
 /bin/ls
 /bin/ls"
-tmp_file="checker_tmp_file_$RANDOM"
 save_file=`echo $BASH_SOURCE | sed -e 's/\.\///g' -e 's/\//#/g'`
 
 # clean up
 stop_shell
 rm -f $tmp_file
 
-# create a pseudo random file
-touch $tmp_file
 # send commands
-echo "$command" | $SHELL > $OUTPUTFILE 2> /dev/null &
+echo "$command" | $LTRACE -bc -o $LTRACEOUTPUTFILE $SHELL > $OUTPUTFILE 2> /dev/null &
 
 # wait a little bit
 $SLEEP $SLEEPSECONDS
@@ -24,11 +21,11 @@ $SLEEP $SLEEPSECONDS
 cat $OUTPUTFILE > "$SAVEOUTPUTDIR/$save_file"
 
 # check the result
-nmatch=`cat $OUTPUTFILE | grep -c "$tmp_file"`
-if [ $nmatch -eq 3 ]; then
-	   print_ok
+nmatch=`cat $LTRACEOUTPUTFILE | grep strtok | wc -l`
+if [ $nmatch -eq 1 ]; then
+    print_ko
 else
-	   print_ko
+    print_ok
 fi
 
 # clean up
