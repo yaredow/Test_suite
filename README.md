@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Simple Shell, Checks
 
 There will be no checks released before the deadline. We **strongly** encourage the whole class to work together and create a suite of checks covering both regular tests and edged cases for each task.
@@ -12,3 +13,19 @@ Open the file `config` and update the variable `SHELL` with your shell.
 ## Run
 
 Usage `./check_simple_shell.bash`
+=======
+# Shell Test Suite
+This repository contains test cases written in Bash for the Simple Shell project.
+
+## Configuration
+* Open the file `config` and update the variable `SHELL` with your shell.
+
+## Usage 
+```sh
+./check_simple_shell.bash
+```
+
+## Author
+* Yohannes Leul
+* Yared Yilma
+>>>>>>> 01dc2887c81c96288a7e6141984229ff7f7742e9

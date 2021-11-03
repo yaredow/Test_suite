@@ -4,10 +4,18 @@ TESTDIR="."
 R=$RANDOM
 OUTPUTFILE="checker_output_$R"
 ERROROUTPUTFILE="checker_error_output_$R"
+<<<<<<< HEAD
 SHELL="./simple_shell"
 #SHELL="/bin/sh"
 SLEEP=`which sleep`
 SLEEPSECONDS=1
+=======
+SAVEOUTPUTDIR="./out"
+SHELL="../hsh"
+#SHELL="/bin/sh"
+SLEEP=`which sleep`
+SLEEPSECONDS=.1
+>>>>>>> 01dc2887c81c96288a7e6141984229ff7f7742e9
 LTRACE=`which ltrace`
 LTRACEOUTPUTFILE="checker_ltrace_output_$R"
 ECHO=`which echo`
